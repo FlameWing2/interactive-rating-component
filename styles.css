@@ -1,0 +1,279 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/*CSS RESET END*/
+
+:root {
+    --ff-overpass:'Overpass', sans-serif;
+    
+    --fw-regular: 400;
+    --fw-bold: 700;
+    
+    --fs-par: 0.9375rem;
+    --fs-h1: 1.35rem;
+  
+    /*Primary*/
+    
+    --clr-orange: hsl(25, 97%, 53%);
+
+    /*Neutrals*/
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-light-grey: hsl(217, 12%, 63%);
+    --clr-medium-grey: hsl(216, 12%, 54%);
+    --clr-grayish-blue: hsl(213, 17%, 21%);
+    --clr-dark-blue: hsl(213, 19%, 18%);
+    --clr-vdark-blue: hsl(216, 12%, 8%);
+}
+
+body {
+    background-color: var(--clr-vdark-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-par);
+}
+
+/*Rating Card formatting*/
+
+.rating__container{
+  background: linear-gradient(16deg,hsl(215, 31%, 12%), var(--clr-dark-blue));
+  border-radius: 1.8rem;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+} 
+
+.rating__title {
+  color: var(--clr-white);
+  font-size: var(--fs-h1);
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.grey-font{
+  color: var(--clr-medium-grey);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.max-width-20rem {
+  max-width: 20rem;
+}
+
+.max-width-24rem {
+  max-width: 24rem;
+}
+
+/*Rating Card start*/
+
+.star__icon-container {
+  background-color: var(--clr-grayish-blue);
+  max-width: fit-content;
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.rating__scale {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+  gap: 0.5rem;
+}
+
+.values {
+  background-color: var(--clr-grayish-blue);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  padding: 1.2rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.values:hover {
+  color: var(--clr-white);
+  background-color: var(--clr-medium-grey);
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--clr-orange);
+  color: var(--clr-white);  
+}
+
+.rating__button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  background-color: var(--clr-orange);
+  padding: 0.5rem;
+  border-radius: 2rem;  
+  color: var(--clr-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.rating__button:hover {
+  cursor:pointer;
+}
+
+/*Rating Card end*/
+
+/*Thank you Card start*/
+
+.rating__selection {
+  background-color: var(--clr-grayish-blue);
+  color: var(--clr-orange);
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  margin: auto;
+}
+
+.rating__thanks-img {
+  max-width: 50%;
+  margin: 2rem auto;
+}
+
+/*Thank you card end*/
+
+/*Utilities*/
+
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes slide-up {
+
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+
+}
+
+.rating__container[show]{
+
+  animation: 
+    slide-up 800ms forwards,
+    fade-in 800ms forwards;
+
+}
+
+.animated {
+  animation: 
+  fade-in 3800ms forwards,  
+  slide-up 3000ms forwards;
+}
+
+
+.disabled {
+  background-color: hsl(25, 79%, 23%);
+  color: var(--clr-light-grey);
+}
+
+.disabled:hover{
+  cursor:default;
+}
+
+
+.attribution { font-size: 0.7rem; text-align: center; color: var(--clr-white); }
+.attribution a { color: hsl(228, 45%, 44%); }
