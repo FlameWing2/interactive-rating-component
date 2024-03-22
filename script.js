@@ -1,7 +1,7 @@
 const thanksCard = document.querySelector('#thanks__card')
 const ratingCard = document.querySelector('#rating__card')
 const attributionText = document.querySelector('.attribution')
-const scoreBtn = document.querySelectorAll('#scoring');
+const scoreBtn = document.querySelectorAll('.scoring');
 const score = document.querySelector('#score')
 const submitBtn = document.querySelector('#submit-button');
 
